@@ -1,0 +1,15 @@
+---
+- name: Install and enable Apache on development and test nodes
+  hosts: dev:test
+  become: true
+  tasks:
+    - name: Install Apache package
+      ansible.builtin.dnf:
+        name: httpd
+        state: present
+
+    - name: Enable and start Apache
+      ansible.builtin.service:
+        name: httpd
+        state: started
+        enabled: true
