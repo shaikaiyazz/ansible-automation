@@ -1,0 +1,16 @@
+---
+- name: Create web content directory on development nodes
+  hosts: dev
+  become: true
+  tasks:
+    - name: Ensure webdev group exists
+      ansible.builtin.group:
+        name: webdev
+        state: present
+
+    - name: Create /webdev with group ownership and SGID permissions
+      ansible.builtin.file:
+        path: /webdev
+        state: directory
+        group: webdev
+        mode: "2775"
