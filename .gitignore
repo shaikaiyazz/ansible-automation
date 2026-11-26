@@ -1,0 +1,18 @@
+# Ansible temporary files
+*.retry
+*.log
+.ansible/
+
+# Vault passwords and local secrets
+secret.txt
+.vault_pass
+.vault-password
+vault-password-file
+
+# SSH private keys
+*.pem
+id_rsa
+id_ed25519
+
+# Local inventory overrides
+inventory/hosts.local.ini
